@@ -41,3 +41,13 @@ url:
    account: http://localhost:8082
 path:
    account: /api/v1/account
+openapi:
+   service:
+      title: api gateway doc
+      version: 1.0.0
+      url: http://localhost:8080
+springdoc:
+   api-docs:
+      path: /authentication-service/v3/api-docs
+   swagger-ui:
+      path: /authentication-service/swagger-ui.html
