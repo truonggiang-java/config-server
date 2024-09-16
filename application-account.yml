@@ -44,7 +44,7 @@ url:
    -  name: Server API gateway
       ip: http://localhost:8080/auth
    -  name: Server Account Service
-      ip: http://localhost:8081
+      ip: http://localhost:8082
 path:
    account: /api/v1/account
 openapi:
