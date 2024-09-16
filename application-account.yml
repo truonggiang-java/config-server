@@ -37,3 +37,23 @@ eureka:
       register-with-eureka: true
       serviceUrl:
          defaultZone: http://admin:123456@localhost:8761/eureka/
+url:
+   account: http://localhost:8082
+   allowed-origins: http://localhost:8080, http://localhost:8082
+   servers:
+   -  name: Server API gateway
+      ip: http://localhost:8080/auth
+   -  name: Server Account Service
+      ip: http://localhost:8081
+path:
+   account: /api/v1/account
+openapi:
+   service:
+      title: api gateway doc
+      version: 1.0.0
+      url: http://localhost:8080
+springdoc:
+   api-docs:
+      path: /account-service/v3/api-docs
+   swagger-ui:
+      path: /account-service/swagger-ui.html
