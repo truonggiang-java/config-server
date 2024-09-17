@@ -39,10 +39,10 @@ eureka:
          defaultZone: http://admin:123456@localhost:8761/eureka/
 url:
    account: http://localhost:8082
-   allowed-origins: http://api-gateway:8080
+   allowed-origins: http://gateway:8080
    servers:
    -  name: Server API gateway
-      ip: http://localhost:8080/auth
+      ip: http://localhost:8080/acc
    -  name: Server Account Service
       ip: http://localhost:8082
 path:
@@ -54,6 +54,6 @@ openapi:
       url: http://localhost:8080
 springdoc:
    api-docs:
-      path: /account-service/v3/api-docs
+      path: /account/v3/api-docs
    swagger-ui:
-      path: /account-service/swagger-ui.html
+      path: /account/swagger-ui.html
