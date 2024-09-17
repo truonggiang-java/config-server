@@ -1,0 +1,41 @@
+eureka:
+   client:
+      fetch-registry: true
+      register-with-eureka: true
+      serviceUrl:
+         defaultZone: http://admin:123456@service-registry:8761/eureka/
+springdoc:
+   enable-native-support: true
+   api-docs:
+      enabled: true
+   swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+      config-url: /v3/api-docs/swagger-config
+      urls:
+      -  url: /v3/api-docs
+         name: API Gateway Service
+         primaryName: Gateway Service
+      -  url: /authentication/v3/api-docs
+         name: API Authentication Service
+         primaryName: Authentication Service
+      -  url: /account/v3/api-docs
+         name: API Account Service
+         primaryName: Account Service
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+   endpoint:
+      health:
+         show-details: always
+   trace:
+      http:
+         enabled: true
+   tracing:
+      sampling:
+         probability: 1.0 # only for testing purpose, switch back to 0.1 for production code
+   zipkin:
+      tracing:
+         endpoint: http://zipkin:9411/api/v2/spans
