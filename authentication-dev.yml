@@ -54,6 +54,6 @@ openapi:
       url: http://localhost:8080
 springdoc:
    api-docs:
-      path: /authentication-service/v3/api-docs
+      path: /authentication/v3/api-docs
    swagger-ui:
-      path: /authentication-service/swagger-ui.html
+      path: /authentication/swagger-ui.html

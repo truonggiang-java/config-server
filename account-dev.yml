@@ -54,6 +54,6 @@ openapi:
       url: http://localhost:8080
 springdoc:
    api-docs:
-      path: /account-service/v3/api-docs
+      path: /account/v3/api-docs
    swagger-ui:
-      path: /account-service/swagger-ui.html
+      path: /account/swagger-ui.html
