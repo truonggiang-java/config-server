@@ -1,0 +1,59 @@
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+   endpoint:
+      health:
+         show-details: always
+   trace:
+      http:
+         enabled: true
+   tracing:
+      sampling:
+         probability: 1.0 # only for testing purpose, switch back to 0.1 for production code
+   zipkin:
+      tracing:
+         endpoint: http://localhost:9411/api/v2/spans
+health:
+   circuitbreakers:
+      enabled: true
+
+resilience4j:
+   circuitbreaker:
+      configs:
+         default:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            minimumNumberOfCalls: 5
+            permittedNumberOfCallsInHalfOpenState: 3
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+eureka:
+   client:
+      fetch-registry: true
+      register-with-eureka: true
+      serviceUrl:
+         defaultZone: http://admin:123456@localhost:8761/eureka/
+url:
+   account: http://localhost:8082
+   allowed-origins: http://api-gateway:8080
+   servers:
+   -  name: Server API gateway
+      ip: http://localhost:8080/auth
+   -  name: Server Account Service
+      ip: http://localhost:8082
+path:
+   account: /api/v1/account
+openapi:
+   service:
+      title: api gateway doc
+      version: 1.0.0
+      url: http://localhost:8080
+springdoc:
+   api-docs:
+      path: /account-service/v3/api-docs
+   swagger-ui:
+      path: /account-service/swagger-ui.html
