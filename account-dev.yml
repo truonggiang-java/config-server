@@ -42,7 +42,7 @@ url:
    allowed-origins: http://localhost:8080
    servers:
    -  name: Server API gateway
-      ip: http://localhost:8080/auth
+      ip: http://localhost:8080/acc
    -  name: Server Account Service
       ip: http://localhost:8082
 path:
