@@ -14,7 +14,7 @@ management:
          probability: 1.0 # only for testing purpose, switch back to 0.1 for production code
    zipkin:
       tracing:
-         endpoint: http://localhost:9411/api/v2/spans
+         endpoint: http://zipkin:9411/api/v2/spans
 health:
    circuitbreakers:
       enabled: true
@@ -36,22 +36,22 @@ eureka:
       fetch-registry: true
       register-with-eureka: true
       serviceUrl:
-         defaultZone: http://admin:123456@localhost:8761/eureka/
+         defaultZone: http://admin:123456@service-registry:8761/eureka/
 url:
-   account: http://localhost:8082
-   allowed-origins: http://gateway:8080
+   account: http://account-service:8082
+   allowed-origins: http://api-gateway:8080
    servers:
    -  name: Server API gateway
-      ip: http://localhost:8080/acc
+      ip: http://api-gateway:8080/acc
    -  name: Server Account Service
-      ip: http://localhost:8082
+      ip: http://account-service:8082
 path:
    account: /api/v1/account
 openapi:
    service:
       title: api gateway doc
       version: 1.0.0
-      url: http://localhost:8080
+      url: http://api-gateway:8080
 springdoc:
    api-docs:
       path: /account/v3/api-docs
