@@ -1,3 +1,5 @@
+demo:
+   gateway: 123456
 eureka:
    client:
       fetch-registry: true
